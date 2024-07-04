@@ -1,26 +1,17 @@
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import './App.css';
+import About from './Pages/About';
+import Home from './Pages/Home';
 
-function App() {
+const App = () => {
   return (
-    <div className="container" id="container">
-      <div className="form-container sign-in-container">
-        <form action="#">
-          <h1>Login</h1>
-          <span>or use your account</span>
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
-          <div className="register-forget opacity">
-            <a href="/register" className="regis">Register </a>
-            <a href="/forgot-password" className="forgot">Forgot Password? </a>
-          </div>
-          <a href="/dashboard" className="button">Login</a>
-        </form>
-      </div>
-      <div className="overlay-panel overlay-right">
-        <img className="image" src="/images/user.png" alt="User" />
-      </div>
-    </div>
-  );
+    <Router>
+      <Routes>
+        <Route path='/' element={<Home />}></Route>
+        <Route path='/about' element={<About />}></Route>
+      </Routes>
+    </Router>
+  )
 }
 
 export default App;
